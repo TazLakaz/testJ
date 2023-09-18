@@ -31,35 +31,60 @@
         <img src="image18.jpg" alt="Image 18">
         <img src="image19.jpg" alt="Image 19">
         <!-- The 20th picture slot -->
-        <div class="upload-placeholder" id="upload-button">
-            <label for="upload-input">Upload an Image</label>
+         <!-- "Choose File" button as a + sign -->
+         <label for="upload-input" id="upload-label" class="upload-button">+</label>
         </div>
-    </div>
-
-    <!-- Input for uploading an image -->
-    <input type="file" id="upload-input" accept="image/*">
+    
+        <!-- Input for uploading an image -->
+        <input type="file" id="upload-input" accept="image/*" style="display: none;">
+    
+        <!-- Arrow Down Element -->
+        <div class="arrow-down" id="scroll-down">Scroll Down</div>
 
     <script>
         const uploadInput = document.getElementById('upload-input');
-        const uploadButton = document.getElementById('upload-button');
-        const gallery = document.querySelector('.gallery');
+const uploadLabel = document.getElementById('upload-label'); // Get the label element
+const gallery = document.querySelector('.gallery');
+const arrowDown = document.getElementById('scroll-down'); // Get the arrow down element
 
-        uploadInput.addEventListener('change', (e) => {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
+uploadInput.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (file) {
+        const reader = new FileReader();
 
-                reader.onload = (e) => {
-                    const img = document.createElement('img');
-                    img.src = e.target.result;
-                    img.alt = 'Image 20';
-                    gallery.removeChild(uploadButton);
-                    gallery.appendChild(img);
-                }
+        reader.onload = (e) => {
+            const img = document.createElement('img');
+            img.src = e.target.result;
+            img.alt = 'Image 20';
+            gallery.appendChild(img);
 
-                reader.readAsDataURL(file);
+            // Check if this is the 20th image
+            if (gallery.querySelectorAll('img').length === 20) {
+                // Hide the upload button and label
+                uploadInput.style.display = 'none';
+                uploadLabel.style.display = 'none';
+
+                // Show the arrow down element
+                arrowDown.style.display = 'block';
             }
-        });
+        }
+
+        reader.readAsDataURL(file);
+    }
+});
+
+const scrollDown = document.getElementById('scroll-down');
+
+scrollDown.addEventListener('click', () => {
+    // Perform the scroll animation
+    window.scroll({
+        top: document.body.scrollHeight,
+        behavior: 'smooth'
+    });
+
+    // Load another HTML file (replace 'hbd.html' with your file name)
+    window.location.href = 'hbd.html';
+});
     </script>
 </body>
 </html>

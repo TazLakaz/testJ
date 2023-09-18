@@ -56,3 +56,35 @@ label {
     text-align: center;
     margin: 20px 0;
 }
+
+.arrow-down {
+    text-align: center;
+    cursor: pointer;
+    margin-top: 20px;
+    display: none; /* Initially hidden */
+}
+
+.arrow-down::before {
+    content: "\25BC"; /* Down arrow character */
+    font-size: 24px;
+}
+
+/* "+" button styling */
+.upload-button {
+    font-size: 150px; /* Increase the font size for a larger "+" sign */
+    color: #ffffff; /* Black color */
+    cursor: pointer;
+    margin-left: 5px; /* Add a small margin to separate it from Image 19 */
+    background: none; /* Remove the background color */
+    border: none; /* Remove any border */
+    padding: 0; /* Remove padding */
+    outline: none; /* Remove the default outline */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hide the file input */
+#upload-input {
+    display: none;
+}
