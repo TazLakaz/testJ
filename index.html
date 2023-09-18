@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOAN Gallery</title>
+    <style>
+        body {
+            background-color: #141414;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.2s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        #upload-button {
+            display: none;
+        }
+
+        .upload-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #333;
+            border: 2px dashed #007BFF;
+            cursor: pointer;
+            border-radius: 5px;
+            height: 200px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .netflix-logo {
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="netflix-logo">JOAN</div>
+
+    <div class="gallery">
+        <!-- Add your initial 19 pictures here -->
+        <img src="image1.jpg" alt="Image 1">
+        <img src="image2.jpg" alt="Image 2">
+        <!-- Repeat for images 3 through 18 -->
+        <img src="image19.jpg" alt="Image 19">
+        <!-- The 20th picture slot -->
+        <div class="upload-placeholder" id="upload-button">
+            <label for="upload-input">Upload an Image</label>
+        </div>
+    </div>
+
+    <!-- Input for uploading an image -->
+    <input type="file" id="upload-input" accept="image/*">
+
+    <script>
+        const uploadInput = document.getElementById('upload-input');
+        const uploadButton = document.getElementById('upload-button');
+        const gallery = document.querySelector('.gallery');
+
+        uploadInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = (e) => {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.alt = 'Image 20';
+                    gallery.removeChild(uploadButton);
+                    gallery.appendChild(img);
+                }
+
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>
