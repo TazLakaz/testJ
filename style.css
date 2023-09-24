@@ -101,6 +101,14 @@ label {
     overflow: hidden; /* Hide scrollbars */
 }
 
+.video-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio, adjust as needed */
+}
+
 #video-bg {
     position: absolute;
     top: 0;
