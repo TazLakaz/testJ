@@ -1,7 +1,7 @@
 /* style.css */
 
 body {
-    background-color: #141414;
+    background-color: #a518b1;
     color: #fff;
     font-family: Arial, sans-serif;
 }
@@ -50,8 +50,14 @@ label {
     border-radius: 5px;
 }
 
-.netflix-logo {
+.title {
     font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0;
+}
+.desc {
+    font-size: 20px;
     font-weight: bold;
     text-align: center;
     margin: 20px 0;
