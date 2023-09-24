@@ -1,48 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Happy Birthday!</title>
-    <style>
-        .image-container {
-            width: 100px; /* Set the initial width */
-            height: 100px; /* Set the initial height */
-            overflow: hidden; /* Hide the overflowing content */
-            position: relative; /* Position for absolute children */
-            display: inline-block;
-            margin: 20px;
-        }
-
-        .image-container img {
-            position: absolute;
-            transition: transform 0.3s ease; /* Add a smooth transition effect */
-        }
-
-        /* First image - Panning to the left */
-        .image-container.first:hover img {
-            transform: translateX(-100%); /* Move the image to the left when hovered */
-        }
-
-        /* Second image - Panning to the right */
-        .image-container.second:hover img {
-            transform: translateX(100%); /* Move the image to the right when hovered */
-        }
-
-        /* Third image - Panning upwards */
-        .image-container.third:hover img {
-            transform: translateY(-100%); /* Move the image upwards when hovered */
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
 </head>
-<body>
-    <h1>Hover to Slide and Pop PNGs</h1>
-    <div class="image-container first">
-        <img src="1image.png" alt="Hidden Image 1">
-    </div>
-    <div class="image-container second">
-        <img src="2image.png" alt="Hidden Image 2">
-    </div>
-    <div class="image-container third">
-        <img src="3image.png" alt="Hidden Image 3">
-    </div>
+<body class="hbd-body">
+    <video autoplay muted loop id="video-bg">
+        <source src="HBD.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
 </body>
 </html>

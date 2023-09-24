@@ -94,3 +94,19 @@ label {
 #upload-input {
     display: none;
 }
+
+.hbd-body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Hide scrollbars */
+}
+
+#video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio and cover the entire viewport */
+    z-index: -1; /* Place the video behind other content */
+}
